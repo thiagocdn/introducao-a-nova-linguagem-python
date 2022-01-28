@@ -4,13 +4,16 @@ print("****************************************")
 
 numero_secreto = 42
 numero_total_tentativas = 3
-rodada = 1
 
 
-while rodada <= numero_total_tentativas:
+for rodada in range(1, numero_total_tentativas + 1):
     print("Tentativa {} de {}".format(rodada, numero_total_tentativas))
-    chute_usuario_str = input("Digite o seu número: ")
+    chute_usuario_str = input("Digite um número entre 1 e 100: ")
     chute_usuario = int(chute_usuario_str)
+
+    if(chute_usuario < 1 or chute_usuario > 100):
+        print("Você deve escolher um número entre 1 e 100")
+        continue
 
     acertou = chute_usuario == numero_secreto
     maior = chute_usuario > numero_secreto
@@ -23,8 +26,6 @@ while rodada <= numero_total_tentativas:
             print("Você errou! O seu chute foi maior que o número secreto!")
         else:
             print("Você errou! O seu chute foi menor que o número secreto!")
-
-    rodada += 1
 
 
 print("\nFim do jogo!")
